@@ -1,0 +1,10 @@
+*.out
+*.gch
+.vscode/*
+test
+test.cpp
+*.o
+tqsim-*
+python/__pycache__/*
+out/*
+results/*
