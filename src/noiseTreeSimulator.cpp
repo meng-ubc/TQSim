@@ -4,7 +4,7 @@
 #include <cppsim/circuit.hpp>
 #include "noiseTreeSimulator.hpp"
 
-NoiseTreeSimulator::NoiseTreeSimulator(const QuantumCircuit *init_circuit, const double prob1, const double prob2, const double damping, const double gate_ratio, const std::vector<int> shots_given, const std::vector<int> lengths, const QuantumState *init_state)
+NoiseTreeSimulator::NoiseTreeSimulator(const QuantumCircuit *init_circuit, const double prob1, const double prob2, const std::vector<int> shots_given, const std::vector<int> lengths, const QuantumState *init_state)
 {
 	if (init_state == NULL)
 	{
@@ -17,10 +17,6 @@ NoiseTreeSimulator::NoiseTreeSimulator(const QuantumCircuit *init_circuit, const
 		// initialize with init_state if provided.
 		initial_state = init_state->copy();
 	}
-
-	int unit_gates = (int)(gate_ratio * init_circuit->qubit_count);
-
-	// printf("%d\n", unit_gates);
 
 	// store the shots
 	shots = shots_given;
@@ -55,15 +51,6 @@ NoiseTreeSimulator::NoiseTreeSimulator(const QuantumCircuit *init_circuit, const
 				std::cerr << "Error: In NoiseSimulator gates must not over 2 qubits" << std::endl;
 				std::cerr << "Added nothing on gate " << i << " ." << std::endl;
 			}
-
-			// if (main_circ_index % unit_gates == 0 && main_circ_index != 0)
-			// {
-			// 	// printf("%d\n", main_circ_index);
-			// 	for (int qubit_index = 0; qubit_index < init_circuit->qubit_count; qubit_index++)
-			// 	{
-			// 		subcirc->add_gate(gate::AmplitudeDampingNoise(qubit_index, damping));
-			// 	}
-			// }
 
 			main_circ_index++;
 		}

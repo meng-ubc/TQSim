@@ -287,3 +287,37 @@ void printStats(std::vector<double> v)
 
     printf("mean is: %.4f, stdev is: %.4f\n\n", mean, stdev);
 }
+
+double normFidelity(std::vector<UINT> ideal, std::vector<UINT> output, int nqubit)
+{
+    std::map<UINT, UINT> freq_ideal = outcomesToFrequency(ideal);
+    std::map<UINT, UINT> freq_output = outcomesToFrequency(output);
+
+    int sum_ideal = ideal.size();
+    int sum_output = output.size();
+
+    double prob_uni = sqrt((double)1 / myPow(2, nqubit));
+
+    double f_ideal_out = 0.0;
+    double f_ideal_uni = 0.0;
+
+    for (int i = 0; i < (1 << nqubit); i++)
+    {
+        if (freq_ideal.count(i) != 0)
+        {
+            f_ideal_uni += sqrt(freq_ideal[i] / (double)sum_ideal) * prob_uni;
+
+            if (freq_output.count(i) != 0)
+            {
+                f_ideal_out += sqrt(freq_ideal[i] / (double)sum_ideal) * sqrt(freq_output[i] / (double)sum_output);
+            }
+        }
+    }
+
+    f_ideal_uni *= f_ideal_uni;
+    f_ideal_out *= f_ideal_out;
+
+    // printf("f_ideal_uni: %f, f_ideal_out: %f\n", f_ideal_uni, f_ideal_out);
+
+    return (f_ideal_out - f_ideal_uni) / (1 - f_ideal_uni);
+}

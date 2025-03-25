@@ -4,8 +4,6 @@ import sys
 import numpy as np
 import math
 
-from scipy.stats import anderson_ksamp, ks_2samp, chisquare
-
 from benchmark_list import benchmarks
 from benchmark_setup import setup
 
@@ -119,35 +117,6 @@ def adjustShots(shots, total_shots):
     while(totalShots(shots) < total_shots):
         shots[minIndex(shots)] += 1
     return shots
-
-def stat():
-    br1 = []
-    br2 = []
-    tr = []
-    
-    with open("results/br1.txt") as file:
-        lines = file.readlines()
-        for line in lines:
-            br1.append(int(line))
-            
-    with open("results/br2.txt") as file:
-        lines = file.readlines()
-        for line in lines:
-            br2.append(int(line))
-    
-    with open("results/tr.txt") as file:
-        lines = file.readlines()
-        for line in lines:
-            tr.append(int(line))
-            
-    print(anderson_ksamp([br1, br2]))
-    print(anderson_ksamp([br1, tr]))
-    print(anderson_ksamp([br2, tr])) 
-    
-    print(ks_2samp(br1, br2))
-    print(ks_2samp(br1, tr))
-    print(ks_2samp(br2, tr)) 
-    
     
         
 if __name__ == '__main__':
@@ -202,21 +171,10 @@ if __name__ == '__main__':
     command = appendCMD(command, '-s', arrToStr(shots))
     command = appendCMD(command, '-l', arrToStr(subcirc_gates))
     
-    # provide damping ratio
-    command = appendCMD(command, '-d', '0.1')
-    command = appendCMD(command, '-g', '6.75')
-    
-    # provide experiment type
-    if setup['target_test'] == 'accuracy':
-        command = appendCMD(command, '-accuracy', 'null')
-    else:
-        command = appendCMD(command, '-speedup', 'null')
+  
+    command = appendCMD(command, '-t', 'null')
     
     # print(command)
     # print(totalShots(shots))
     
     os.system(command)
-    
-    # print the stats from
-    if setup['target_test'] == 'accuracy':
-        stat()

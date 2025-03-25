@@ -6,7 +6,7 @@
 #include <cppsim/gate_merge.hpp>
 #include <cppsim/circuit.hpp>
 
-class DllExport NoiseTreeSimulator
+class NoiseTreeSimulator
 {
 private:
 	std::vector<QuantumCircuit *> circuits;
@@ -24,29 +24,29 @@ private:
 
 public:
 	/**
-		 * \~japanese-en
-		 * コンストラクタ。
-		 *
-		 * NoiseSimulatorを作成する。
-		 * @param[in] init_circuit  
-		 * @param[in] prob ノイズが乗る確率
-		 * @param[in] init_state 最初の状態。指定されなかった場合は0で初期化される。
-		 * @return NoiseSimulatorのインスタンス
-		 */
-	NoiseTreeSimulator(const QuantumCircuit *init_circuit, const double prob1, const double prob2, const double damping, const double gate_ratio, const std::vector<int> shots_given, const std::vector<int> lengths, const QuantumState *init_state = NULL);
+	 * \~japanese-en
+	 * コンストラクタ。
+	 *
+	 * NoiseSimulatorを作成する。
+	 * @param[in] init_circuit
+	 * @param[in] prob ノイズが乗る確率
+	 * @param[in] init_state 最初の状態。指定されなかった場合は0で初期化される。
+	 * @return NoiseSimulatorのインスタンス
+	 */
+	NoiseTreeSimulator(const QuantumCircuit *init_circuit, const double prob1, const double prob2, const std::vector<int> shots_given, const std::vector<int> lengths, const QuantumState *init_state = NULL);
 
 	/**
-		 * \~japanese-en
-		 * デストラクタ。このとき、NoiseSimulatorが保持しているcircuitとinitial_stateは解放される。
-		 */
+	 * \~japanese-en
+	 * デストラクタ。このとき、NoiseSimulatorが保持しているcircuitとinitial_stateは解放される。
+	 */
 	virtual ~NoiseTreeSimulator();
 
 	/**
-		 * \~japanese-en
-		 * 
-		 * サンプリングを行い、結果を配列で返す。
-		 * @param[in] sample_count 行うsamplingの回数
-		 */
+	 * \~japanese-en
+	 *
+	 * サンプリングを行い、結果を配列で返す。
+	 * @param[in] sample_count 行うsamplingの回数
+	 */
 	virtual std::vector<UINT> execute();
 };
 

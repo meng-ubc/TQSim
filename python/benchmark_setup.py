@@ -9,7 +9,4 @@ setup = {
     # Boundary values
     'min_gates'   : 50,
     'max_subcircs'   : 10,
-    
-    # Target test for experiment
-    'target_test'   : "accuracy" # for accuracy test or "speedup" for speedup test
     }

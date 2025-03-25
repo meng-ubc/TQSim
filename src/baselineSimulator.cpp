@@ -7,7 +7,7 @@
  * \~japanese-en 回路にノイズを加えてサンプリングするクラス
  */
 
-BaselineSimulator::BaselineSimulator(const QuantumCircuit *init_circuit, const double prob_single, const double prob_two, const double damping, const double gate_ratio, const QuantumState *init_state)
+BaselineSimulator::BaselineSimulator(const QuantumCircuit *init_circuit, const double prob_single, const double prob_two, const QuantumState *init_state)
 {
 
     if (init_state == NULL)
@@ -21,8 +21,6 @@ BaselineSimulator::BaselineSimulator(const QuantumCircuit *init_circuit, const d
         // initialize with init_state if provided.
         initial_state = init_state->copy();
     }
-
-    int unit_gates = (int)(gate_ratio * init_circuit->qubit_count);
 
     circuit = new QuantumCircuit(init_circuit->qubit_count);
     UINT n = init_circuit->gate_list.size();
@@ -47,14 +45,6 @@ BaselineSimulator::BaselineSimulator(const QuantumCircuit *init_circuit, const d
             std::cerr << "Error: In BaselineSimulator gates must not over 2 qubits" << std::endl;
             std::cerr << "Added nothing on gate " << i << " ." << std::endl;
         }
-
-        // if (i % unit_gates == 0 && i != 0)
-        // {
-        //     for (int qubit_index = 0; qubit_index < init_circuit->qubit_count; qubit_index++)
-        //     {
-        //         circuit->add_gate(gate::AmplitudeDampingNoise(qubit_index, damping));
-        //     }
-        // }
     }
 }
 

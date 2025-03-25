@@ -6,6 +6,7 @@
 QuantumCircuit *readCircuit(const char *file_name);
 double chiLoss(std::vector<UINT> dist1, std::vector<UINT> dist2, int nqubit);
 double stateFidelity(std::vector<UINT> dist1, std::vector<UINT> dist2, int nqubit);
+double normFidelity(std::vector<UINT> ideal, std::vector<UINT> output, int nqubit);
 
 // methods used in main.cpp
 char *getCmdOption(char **begin, char **end, const std::string &option);
