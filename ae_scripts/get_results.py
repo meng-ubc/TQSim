@@ -5,7 +5,7 @@ import json
 
 def main():
     classes = ['adder', 'bv', 'mul', 'qaoa', 'qft', 'qpe', 'qsc', 'qv']
-    max_qubits = 15
+    max_qubits = 13
 
     results = {}
 
@@ -26,6 +26,8 @@ def main():
 
             # Decode bytes to string
             output_str = output.decode("utf-8")
+            
+            print(output_str)
 
             # Split the output into lines and get the last three
             lines = output_str.strip().split("\n")[-3:]

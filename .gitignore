@@ -5,6 +5,8 @@ test
 test.cpp
 *.o
 tqsim-*
-python/__pycache__/*
+*/__pycache__/*
 out/*
 results/*
+*.out
+*.log
