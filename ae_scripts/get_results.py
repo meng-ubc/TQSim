@@ -17,9 +17,6 @@ def main():
         # Otherwise, use the default classes and index range
         classes = ['adder', 'bv', 'mul', 'qaoa', 'qft', 'qpe', 'qsc', 'qv']
         index_range = range(6)
-       
-        
-    # classes = ['adder', 'bv', 'mul', 'qaoa', 'qft', 'qpe', 'qsc', 'qv']
     
     max_qubits = 8
 
