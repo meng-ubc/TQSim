@@ -86,10 +86,10 @@ std::vector<UINT> BaselineSimulator::execute(const UINT sample_count)
         // std::cout << temp << std::endl;
         result.push_back(sampling_state.sampling(1)[0]);
 
-        if (i % 100 == 0)
-        {
-            std::cout << string_format("%-10s shot: %-5d", "Baseline", i) << '\r' << std::flush;
-        }
+        // if (i % 100 == 0)
+        // {
+        //     std::cout << string_format("%-10s shot: %-5d", "Baseline", i) << '\r' << std::flush;
+        // }
     }
 
     // std::cout<< "Baseline simulation finished!" << std::endl;

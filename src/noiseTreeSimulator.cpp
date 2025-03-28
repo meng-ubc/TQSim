@@ -97,10 +97,10 @@ void NoiseTreeSimulator::recurExecute(const int curDepth)
 		results.push_back((intermediate_states[curDepth]->sampling(1))[0]);
 		count++;
 
-		if (count % 100 == 0)
-		{
-			std::cout << string_format("%-10s shot: %-5d", "Qtree", count) << '\r' << std::flush;
-		}
+		// if (count % 100 == 0)
+		// {
+		// 	std::cout << string_format("%-10s shot: %-5d", "Qtree", count) << '\r' << std::flush;
+		// }
 		return;
 	}
 

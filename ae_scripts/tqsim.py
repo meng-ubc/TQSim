@@ -117,14 +117,10 @@ def adjustShots(shots, total_shots):
     while(totalShots(shots) < total_shots):
         shots[minIndex(shots)] += 1
     return shots
-    
-        
-if __name__ == '__main__':
-    
-    benchmark_class = str(sys.argv[1])
-    benchmark_index = int(sys.argv[2])
-    
-    filename = 'benchmark_circuits/' + benchmark_class + '/' + benchmarks[benchmark_class][benchmark_index] + '.txt'
+
+def get_command(benchmark_class, benchmark_index):    
+
+    filename = '../benchmark_circuits/' + benchmark_class + '/' + benchmarks[benchmark_class][benchmark_index] + '.txt'
 
     gate_arities, qubits = loadGates(filename)
 
@@ -164,7 +160,7 @@ if __name__ == '__main__':
                 index = 1
     
     # program
-    command = './out/tqsim-cpu'
+    command = './../out/tqsim-cpu'
     # provide circuit
     command = appendCMD(command, '-c', filename)
     # provide shots
@@ -174,7 +170,12 @@ if __name__ == '__main__':
   
     command = appendCMD(command, '-t', 'null')
     
-    # print(command)
-    # print(totalShots(shots))
+    return command, qubits
+
+if __name__ == '__main__':
     
+    benchmark_class = str(sys.argv[1])
+    benchmark_index = int(sys.argv[2])
+    
+    command = get_command(benchmark_class, benchmark_index)[0]
     os.system(command)

@@ -1,0 +1,64 @@
+{
+    "adder": {
+        "speedup": [
+            1.894953,
+            1.825668,
+            1.919755
+        ],
+        "fidelity_difference": [
+            0.015427999999999997,
+            0.0040599999999999525,
+            0.010336000000000012
+        ]
+    },
+    "bv": {
+        "speedup": [
+            1.918255,
+            1.904772
+        ],
+        "fidelity_difference": [
+            0.00905800000000001,
+            0.005399000000000043
+        ]
+    },
+    "mul": {
+        "speedup": [],
+        "fidelity_difference": []
+    },
+    "qaoa": {
+        "speedup": [
+            1.941704,
+            1.925466
+        ],
+        "fidelity_difference": [
+            0.0043119999999999825,
+            0.004800999999999944
+        ]
+    },
+    "qft": {
+        "speedup": [],
+        "fidelity_difference": []
+    },
+    "qpe": {
+        "speedup": [
+            1.914054,
+            1.902261
+        ],
+        "fidelity_difference": [
+            0.007523999999999975,
+            0.014929999999999999
+        ]
+    },
+    "qsc": {
+        "speedup": [
+            1.942873
+        ],
+        "fidelity_difference": [
+            0.014562999999999993
+        ]
+    },
+    "qv": {
+        "speedup": [],
+        "fidelity_difference": []
+    }
+}
