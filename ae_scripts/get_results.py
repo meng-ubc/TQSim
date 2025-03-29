@@ -18,7 +18,7 @@ def main():
         classes = ['adder', 'bv', 'mul', 'qaoa', 'qft', 'qpe', 'qsc', 'qv']
         index_range = range(6)
     
-    max_qubits = 8
+    max_qubits = 13
 
     results = {}
 

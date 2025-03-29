@@ -74,7 +74,7 @@ ax.set_ylabel("Normalized Fidelity Discrepancy",fontsize= labelsize)
 plt.yticks(fontsize=ticksize)
 plt.xticks(xticks_loc, xticks,fontsize=ticksize)
 
-plt.savefig("fidelity.png", dpi=1000, bbox_inches='tight')
+plt.savefig("Figure_14_fidelity.png", dpi=1000, bbox_inches='tight')
 
 
 fig, axs = plt.subplots(2, 4, figsize=(10, 5))
@@ -110,4 +110,4 @@ for i in range(8):
     for tick in ax.get_xticklabels():
         tick.set_rotation(45)
 
-plt.savefig("speedup.png", dpi=1000, bbox_inches='tight')
+plt.savefig("Figure_11_speedup.png", dpi=1000, bbox_inches='tight')
